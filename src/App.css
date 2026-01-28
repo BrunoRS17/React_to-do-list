@@ -1,0 +1,247 @@
+:root {
+  --primary: #646cff;
+  --bg-dark: #121212;
+  --card-bg: #1e1e1e;
+  --text: #e2e2e2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-dark);
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+}
+
+/* ===== Layout ===== */
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.card-container {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* ===== Card ===== */
+
+.card {
+  background-color: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  width: 620px;
+  height: 820px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card.concluidas {
+  width: 440px;
+}
+
+/* ===== Título ===== */
+
+.titulo {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+}
+
+/* ===== Formulário ===== */
+
+
+.listaTarefas span {
+  font-size: 15px;
+  word-break: break-word;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #2a2a2a;
+  color: white;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: var(--primary);
+}
+
+button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+  background-color: #535bf2;
+  transform: translateY(-2px);
+}
+
+/* ===== Lista Pendentes ===== */
+
+.listaTarefas {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+
+.listaTarefas::-webkit-scrollbar {
+  width: 6px;
+}
+.listaTarefas::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+  border-radius: 6px;
+}
+.listaTarefas::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+
+.tarefa-item {
+  background: #2a2a2a;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+  align-items: center;
+  gap: 10px;
+  animation: fadeIn 0.3s ease;
+}
+
+
+/* ===== Busca ===== */
+
+.busca-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.busca-container input {
+  flex: none;
+  width: 100%;
+  max-width: 260px;
+}
+
+
+/* ===== Tarefas Concluídas ===== */
+
+.tarefa-concluida {
+  background: #2a2a2a;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  border-left: 3px solid #6c63ff;
+}
+
+.tarefa-texto {
+  font-size: 14px;
+  color: #eaeaea;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.tarefa-data {
+  font-size: 11px;
+  color: #8b8b8b;
+}
+
+
+/* ===== Responsivo ===== */
+
+@media (max-width: 900px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card,
+  .card.concluidas {
+    width: 100%;
+    max-width: 440px;
+  }
+}
+
+
+/* ===== Animações ===== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column; 
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-tarefa {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #2a2a2a;
+  color: white;
+  outline: none;
+  resize: vertical;
+  font-family: inherit;
+  min-height: 45px;
+  transition: border-color 0.3s;
+}
+
+.input-tarefa:focus {
+  border-color: var(--primary);
+}
+
+.controles-form {
+  display: flex;
+  gap: 10px;
+}
+
+.controles-form input {
+  flex: 1; 
+}
